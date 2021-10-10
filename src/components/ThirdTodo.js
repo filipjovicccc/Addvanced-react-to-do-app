@@ -1,7 +1,7 @@
 import React from "react"
 
 
-const ThirdTodo = ({text, todo, thirdTodos, setThirdTodos, todos ,}) => {
+const ThirdTodo = ({text, todo, thirdTodos, setThirdTodos,}) => {
 
 
 const thirdDeleteHandler = () => {

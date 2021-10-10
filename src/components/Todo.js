@@ -1,17 +1,20 @@
 import React from "react"
 
-const Todo = ({text, todo, todos, setTodos, setSecondTodos, secondTodos, setSecondText }) => {
+const Todo = ({text, todo, todos, setTodos, setSecondTodos, secondTodos, setSecondText,  }) => {
     
     const deleteHandler = () => {
         setTodos(todos.filter((el) => el.id !== todo.id))
       
     };
-const secondSubmitHandler = (e) => {
+
+
+const arrowRightHandler = (e) => {
     e.preventDefault();
     setSecondTodos([ 
       ...secondTodos, {text: text , completed: false, id: Math.random()*1000},
     ])
     setSecondText("")
+
     
     setTodos(todos.filter((el) => el.id !== todo.id))
     
@@ -23,7 +26,7 @@ return(
 
                     </button>
                  <li > {text}</li>
-                <button onClick={secondSubmitHandler}  className="complete-btn">
+                <button onClick={arrowRightHandler}  className="complete-btn">
                     <i className="fas fa-arrow-right"></i>
                     </button>
                

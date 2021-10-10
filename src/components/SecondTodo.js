@@ -11,16 +11,16 @@ const arrowLeftHandler = () => {
           setInputText("")
 
           setSecondTodos(secondTodos.filter((zl) => zl.id !== todo.id))
-        
-        
-};
+    
+        };
 const thirdSubmitHandler = (e) => {
-    console.log(todos.map(yoko => text))
+  
     e.preventDefault();
     setThirdTodos([ 
       ...thirdTodos, {text:(text) , completed: false, id: Math.random()*1000},
     ])
     setSecondTodos(secondTodos.filter((zl) => zl.id !== todo.id))
+   
     
 }
 return(

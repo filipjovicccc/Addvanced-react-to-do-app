@@ -4,13 +4,13 @@ import React, {useState, useEffect} from "react"
 
 import Form from "./components/Form";
 
-import TodoList from './components/TodoList';
-
-import SecondTodoList from './components/SecondTodoList';
-
-import ThirdTodoList from './components/ThirdTodoList';
-
 import ReactDOM from 'react-dom';
+
+import Todo from './components/Todo'
+
+import SecondTodo from './components/SecondTodo';
+
+import ThirdTodo from './components/ThirdTodo';
 
 function App() {
 
@@ -19,21 +19,17 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [secondTodos, setSecondTodos] = useState([])
   const [thirdTodos, setThirdTodos] = useState([])
-  const [status, setStatus] = useState('all')
-  const [variable, variableAlert] = useState('')
+   const [variable, variableAlert] = useState('')
 
-// let inputRegex = ""
-//  let mYstring = ""
   const submitTodoHendler = (e) => {
     e.preventDefault();
     if (inputText === ""){
-      // alert("Cannot have empty to do, or same to do twice in a row")
+     
       variableAlert("Cannot have empty to do, or same to do twice in a row")
       setTimeout(function(){window.location="index";}, 2000)
     } else
     setTodos([ 
-      // inputRegex = inputText,
-      // mYstring = inputRegex.replace(/^(.{25}[^\s]*).*/, "$1"),
+    
       ...todos, {text: inputText, completed: false, id: Math.random()*1000},
     ])
     setInputText("")
@@ -45,7 +41,7 @@ function App() {
   
   useEffect(() => {
     saveLocalTodos()
-  }, [todos, status])
+  }, [todos,])
 
   const saveLocalTodos = () => {
    
@@ -70,17 +66,9 @@ function App() {
      </header>
    
     <Form 
-    variable = {variable}
-    variableAlert={variableAlert}
-     inputText={inputText}
-     todos={todos}
-     setTodos={setTodos}
+    inputText={inputText}
      setInputText={setInputText}
-     setSecondText = {setSecondText}
-     secondInputText = {secondInputText}
      submitTodoHendler={submitTodoHendler}
-     setStatus= {setStatus}
- 
      />
  
  <div className= "variable">
@@ -89,35 +77,64 @@ function App() {
 <div className="wrapper">
         <div className="wrap">
        
-          <TodoList 
-          inputText={inputText}
-          setInputText={setInputText}
-           setTodos={setTodos}
-           todos={todos}
-           secondTodos={secondTodos}
-           setSecondTodos={setSecondTodos}
-           setSecondText = {setSecondText}
-           secondInputText = {secondInputText}
-
-           />
-       </div>
+ <div className="todo-container" >
+            <ul className="todo-list">
+                {todos.map(todo => (
+                    <Todo
+                     setTodos={setTodos}
+                     todos={todos}
+                     key={todo.id}
+                     todo={todo}
+                     text={todo.text} 
+                     secondTodos={secondTodos}
+                     setSecondTodos = {setSecondTodos}
+                     setSecondText= {setSecondText}
+                      />
+                  
+                     ))}
+                </ul>
+         </div>
+ </div>
         <div className="wrap">
-          <SecondTodoList 
-              secondTodos={secondTodos}
-               setSecondTodos={setSecondTodos}
-               todos={todos}
-               setTodos={setTodos}
-               thirdTodos={thirdTodos}
-               setThirdTodos={setThirdTodos}
-                />
-     </div>
+
+        <div className="todo-container" >
+            <ul className="todo-list">
+                {secondTodos.map(todo => (
+                 <SecondTodo
+                     setInputText={setInputText}
+                     setSecondTodos={setSecondTodos}
+                     secondTodos={secondTodos}
+                     todos={todos}
+                     setTodos={setTodos}
+                     key={todo.id}
+                     todo={todo}
+                     text={todo.text} 
+                     thirdTodos={thirdTodos}
+                     setThirdTodos={setThirdTodos}
+                    />
+                      ))}
+                   </ul>
+       </div>
+</div>
        <div className="wrap">
-        <ThirdTodoList
-            thirdTodos={thirdTodos}
-            setThirdTodos={setThirdTodos}
-            todos={todos}
-            setTodos={setTodos}
-        />
+   <div className="todo-container" >
+            <ul className="todo-list">
+                {thirdTodos.map(todo => (
+                    <ThirdTodo
+                     thirdTodos={thirdTodos}
+                     setThirdTodos={setThirdTodos}
+                     key={todo.id}
+                     todo={todo}
+                     text={todo.text} 
+                 />
+                  
+                      ))}
+     
+             </ul>
+            
+    </div>
+
+
         </div>
        </div>
   
