@@ -13,7 +13,7 @@ const arrowLeftHandler = () => {
           setSecondTodos(secondTodos.filter((zl) => zl.id !== todo.id))
     
         };
-const thirdSubmitHandler = (e) => {
+const arrowRightHandler = (e) => {
   
     e.preventDefault();
     setThirdTodos([ 
@@ -30,7 +30,7 @@ return(
 
                     </button>
             <li > {text}</li>
-                <button onClick={thirdSubmitHandler} className="complete-btn">
+                <button onClick={arrowRightHandler} className="complete-btn">
                     <i className="fas fa-arrow-right"></i>
                     </button>
                

@@ -1,19 +1,20 @@
 import React from "react"
 
-const Todo = ({text, todo, todos, setTodos, setSecondTodos, secondTodos, setSecondText,  }) => {
+
+const Todo = ({text, todo, todos, setTodos, setSecondTodos, secondTodos, setInputText,  }) => {
     
     const deleteHandler = () => {
         setTodos(todos.filter((el) => el.id !== todo.id))
+        
       
     };
-
 
 const arrowRightHandler = (e) => {
     e.preventDefault();
     setSecondTodos([ 
       ...secondTodos, {text: text , completed: false, id: Math.random()*1000},
     ])
-    setSecondText("")
+    setInputText("")
 
     
     setTodos(todos.filter((el) => el.id !== todo.id))

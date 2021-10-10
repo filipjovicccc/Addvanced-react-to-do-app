@@ -4,8 +4,6 @@ import React, {useState, useEffect} from "react"
 
 import Form from "./components/Form";
 
-import ReactDOM from 'react-dom';
-
 import Todo from './components/Todo'
 
 import SecondTodo from './components/SecondTodo';
@@ -15,17 +13,16 @@ import ThirdTodo from './components/ThirdTodo';
 function App() {
 
   const [inputText, setInputText] = useState("");
-  const [secondInputText,  setSecondText] = useState("");
   const [todos, setTodos] = useState([]);
   const [secondTodos, setSecondTodos] = useState([])
   const [thirdTodos, setThirdTodos] = useState([])
-   const [variable, variableAlert] = useState('')
+   const [variableAlert, setVariableAlert] = useState('')
 
   const submitTodoHendler = (e) => {
     e.preventDefault();
     if (inputText === ""){
      
-      variableAlert("Cannot have empty to do, or same to do twice in a row")
+      setVariableAlert("Cannot have empty to do")
       setTimeout(function(){window.location="index";}, 2000)
     } else
     setTodos([ 
@@ -72,12 +69,13 @@ function App() {
      />
  
  <div className= "variable">
-       {variable}
+       {variableAlert}
      </div>
 <div className="wrapper">
         <div className="wrap">
-       
- <div className="todo-container" >
+          <h1>TO DO </h1>
+         <hr />
+       <div className="todo-container" >
             <ul className="todo-list">
                 {todos.map(todo => (
                     <Todo
@@ -88,7 +86,7 @@ function App() {
                      text={todo.text} 
                      secondTodos={secondTodos}
                      setSecondTodos = {setSecondTodos}
-                     setSecondText= {setSecondText}
+                     setInputText={setInputText}
                       />
                   
                      ))}
@@ -96,7 +94,8 @@ function App() {
          </div>
  </div>
         <div className="wrap">
-
+          <h1>IN PROGRESS</h1>
+        <hr />
         <div className="todo-container" >
             <ul className="todo-list">
                 {secondTodos.map(todo => (
@@ -117,6 +116,8 @@ function App() {
        </div>
 </div>
        <div className="wrap">
+       <h1>COMPLETED</h1>
+         <hr />
    <div className="todo-container" >
             <ul className="todo-list">
                 {thirdTodos.map(todo => (
@@ -126,6 +127,9 @@ function App() {
                      key={todo.id}
                      todo={todo}
                      text={todo.text} 
+                     setSecondTodos={setSecondTodos}
+                     secondTodos={secondTodos}
+                     setInputText={setInputText}
                  />
                   
                       ))}
