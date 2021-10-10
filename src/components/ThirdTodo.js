@@ -12,7 +12,7 @@ const thirdDeleteHandler = () => {
 
 const arrowLeftHandler = () => {
         setSecondTodos([ 
-                ...secondTodos, {text: text , completed: false, id: Math.random()*1000},
+                ...secondTodos, {text: text , id: Math.random()*1000},
               ])
               setInputText("")
           

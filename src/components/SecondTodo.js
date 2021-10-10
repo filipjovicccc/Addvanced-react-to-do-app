@@ -6,7 +6,7 @@ const SecondTodo = ({text, todo, todos, setTodos,secondTodos, setSecondTodos , t
 
 const arrowLeftHandler = () => {
         setTodos([ 
-            ...todos, {text: (text), completed: false, id: Math.random()*1000},
+            ...todos, {text: (text),  id: Math.random()*1000},
           ])
           setInputText("")
 
@@ -17,7 +17,7 @@ const arrowRightHandler = (e) => {
   
     e.preventDefault();
     setThirdTodos([ 
-      ...thirdTodos, {text:(text) , completed: false, id: Math.random()*1000},
+      ...thirdTodos, {text:(text) , id: Math.random()*1000},
     ])
     setSecondTodos(secondTodos.filter((zl) => zl.id !== todo.id))
    

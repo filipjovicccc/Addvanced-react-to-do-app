@@ -22,12 +22,12 @@ function App() {
     e.preventDefault();
     if (inputText === ""){
      
-      setVariableAlert("Cannot have empty to do")
+      setVariableAlert('U cannot add empty "to do" ')
       setTimeout(function(){window.location="index";}, 2000)
     } else
     setTodos([ 
     
-      ...todos, {text: inputText, completed: false, id: Math.random()*1000},
+      ...todos, {text: inputText,  id: Math.random()*1000},
     ])
     setInputText("")
   }
