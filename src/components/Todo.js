@@ -1,12 +1,22 @@
 import React from "react"
+import {trashHandler} from "../helpers/deleteTrash";
+// import Trash from "./pages/Trash";s
+
+trashHandler(trashTodos, setTrashTodos)
+
+const Todo = ({text, todo, todos, setTodos, setSecondTodos, secondTodos, setInputText,   }) => {
 
 
-const Todo = ({text, todo, todos, setTodos, setSecondTodos, secondTodos, setInputText  }) => {
-    
     const deleteHandler = () => {
+      setTrashTodos([ 
+        ...trashTodos, {text: text , id: Math.random()*1000},
+      ])
+      setInputText("")
+
         setTodos(todos.filter((el) => el.id !== todo.id))
         
       };
+
 
 const arrowRightHandler = (e) => {
     e.preventDefault();
@@ -34,4 +44,4 @@ return(
     );
 }
 
-export default Todo;
+export default  Todo;
