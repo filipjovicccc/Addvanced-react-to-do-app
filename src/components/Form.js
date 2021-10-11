@@ -1,6 +1,11 @@
 import React from "react";
+import { useContext } from "react";
+import { inputContext } from "./helpers/Context";
 
-const Form = ({setInputText, inputText, submitTodoHendler, }) => {
+const Form = ({ submitTodoHendler, inputText, setInputText }) => {
+
+  // const {inputText, setInputText} = useContext(inputContext);
+
   const inputTextHandler = (e) => {
      setInputText(e.target.value)
   

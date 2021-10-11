@@ -1,6 +1,6 @@
 import "./Home.css"
 
-import {useState, useEffect} from "react"
+import {useState, useEffect, useContext} from "react"
 
 import Form from "../Form"
 
@@ -10,20 +10,22 @@ import SecondTodo from "../SecondTodo"
 
 import ThirdTodo from "../ThirdTodo"
 
+import { trashContext } from "../helpers/Context"
 
-import Trash from "./Trash"
-
+// import { inputContext, trashContext } from "../helpers/Context"
 
 
 // import { trashTodos, setTrashTodos } from "../../helpers/deleteTrash"
 
 function Home(){
 
-    const [inputText, setInputText] = useState("");
+  // const {inputText, setInputText} = useContext(inputContext);
     const [todos, setTodos] = useState([]);
     const [secondTodos, setSecondTodos] = useState([])
     const [thirdTodos, setThirdTodos] = useState([])
      const [variableAlert, setVariableAlert] = useState('')
+     const {trashTodos, setTrashTodos} = useContext(trashContext) //TRASH TODOS NE RADI
+     const [inputText, setInputText] = useState("")
      
      
     const submitTodoHendler = (e) => {
@@ -63,9 +65,7 @@ function Home(){
          }
         }
         
-    
-  
-   return (
+     return (
       <div className="App">
         <header>
        <h1>Todo List </h1>
@@ -83,6 +83,7 @@ function Home(){
        setInputText={setInputText}
        submitTodoHendler={submitTodoHendler}
        />
+      
    
    <div className= "variable">
          {variableAlert}
@@ -103,6 +104,8 @@ function Home(){
                        secondTodos={secondTodos}
                        setSecondTodos = {setSecondTodos}
                        setInputText={setInputText}
+                       trashTodos={trashTodos}
+                       setTrashTodos={setTrashTodos}
                         />
                     
                        ))}

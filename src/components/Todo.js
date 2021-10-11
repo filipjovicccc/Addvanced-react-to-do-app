@@ -1,13 +1,10 @@
 import React from "react"
-import {trashHandler} from "../helpers/deleteTrash";
-// import Trash from "./pages/Trash";s
-
-trashHandler(trashTodos, setTrashTodos)
-
-const Todo = ({text, todo, todos, setTodos, setSecondTodos, secondTodos, setInputText,   }) => {
 
 
-    const deleteHandler = () => {
+
+const Todo = ({text, todo, todos, setTodos, setSecondTodos, secondTodos, setInputText, trashTodos, setTrashTodos    }) => {
+
+  const deleteHandler = () => {
       setTrashTodos([ 
         ...trashTodos, {text: text , id: Math.random()*1000},
       ])

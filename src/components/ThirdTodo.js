@@ -3,7 +3,7 @@ import React from "react"
 const ThirdTodo = ({text, todo, thirdTodos, setThirdTodos, setSecondTodos, secondTodos, setInputText}) => {
 
 
-const thirdDeleteHandler = () => {
+const deleteHandler = () => {
        
 
         setThirdTodos(thirdTodos.filter((el) => el.id !== todo.id))
@@ -30,7 +30,7 @@ return(
 
                     </button>
             <li > {text}</li>
-                <button onClick= {thirdDeleteHandler} className="trash-btn">
+                <button onClick= {deleteHandler} className="trash-btn">
                     <i className="fas fa-trash"></i>
                     </button>
                
