@@ -10,7 +10,7 @@ import SecondTodo from "../SecondTodo"
 
 import ThirdTodo from "../ThirdTodo"
 
-import { trashContext } from "../helpers/Context"
+import { trashContext, inputContext } from "../helpers/Context"
 
 // import { inputContext, trashContext } from "../helpers/Context"
 
@@ -19,13 +19,13 @@ import { trashContext } from "../helpers/Context"
 
 function Home(){
 
-  // const {inputText, setInputText} = useContext(inputContext);
+  const {inputText, setInputText} = useContext(inputContext);
     const [todos, setTodos] = useState([]);
     const [secondTodos, setSecondTodos] = useState([])
     const [thirdTodos, setThirdTodos] = useState([])
      const [variableAlert, setVariableAlert] = useState('')
      const {trashTodos, setTrashTodos} = useContext(trashContext) //TRASH TODOS NE RADI
-     const [inputText, setInputText] = useState("")
+    //  const [inputText, setInputText] = useState("")
      
      
     const submitTodoHendler = (e) => {
@@ -64,11 +64,12 @@ function Home(){
           setTodos(todoLocal)
          }
         }
+        // const msg = useContext(message)
         
      return (
       <div className="App">
         <header>
-       <h1>Todo List </h1>
+       <h1>Todo List  </h1>
        
        </header>
        {/* <Trash

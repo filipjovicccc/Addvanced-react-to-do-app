@@ -1,6 +1,6 @@
 import react from "react"
 
-function TrashTodo(){
+function TrashTodo(inputText){
  
 
          return(
@@ -9,7 +9,7 @@ function TrashTodo(){
                          <i  className="fas fa-trash"></i>
      
                          </button>
-                      <li ></li>
+                      <li >{inputText}</li>
                      <button   className="complete-btn">
                          <i className="fas fa-arrow-right"></i>
                          </button>
