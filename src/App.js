@@ -3,7 +3,7 @@ import Trash from "./components/pages/Trash"
 import Navbar from "./components/Navbar";
 import { useState } from "react";
 import { message } from "./components/helpers/Context";
-import { trashContext, inputContext } from "./components/helpers/Context";
+import { trashContext, } from "./components/helpers/Context";
 
 // import { trashContext } from "./components/helpers/Context";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
@@ -11,10 +11,23 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
 function App() {
 
   const [trashTodos, setTrashTodos] = useState([])
-  const [inputText, setInputText] = useState("")
+  // const[inputText, setInputText]=useState("")
+
+  const deleteHandler = (id) => 
+  setTrashTodos((trashTodos) => trashTodos.filter((trashTodos) => trashTodos.id !== id))
+
+  const value = {
+    trashTodos,
+    setTrashTodos,
+    deleteHandler,
+    // inputText,
+    // setInputText
+   
+  }
+
   return(
-   <inputContext.Provider value={{inputText, setInputText}}>
-    <trashContext.Provider value={{ trashTodos, setTrashTodos}}>
+ 
+    <trashContext.Provider value={value}>
      <Router>
      <Navbar />
        <Switch>
@@ -25,7 +38,7 @@ function App() {
 
      </Router>
      </trashContext.Provider >
-     </inputContext.Provider>
+
  
   )
  

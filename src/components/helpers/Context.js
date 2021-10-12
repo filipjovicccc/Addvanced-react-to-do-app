@@ -1,7 +1,14 @@
 import { createContext,  } from "react";
 
 
-export const trashContext = createContext([])
+export const trashContext = createContext({
+    trashTodos: [],
+     setTrashTodos: () => {} ,
+      deleteHandler: () => {},
+    //    inputText: (""),
+    //    setInputText: () => {}
 
-// export const message = createContext(null)
-export const inputContext = createContext("")
+
+})
+
+

@@ -1,10 +1,14 @@
 import React from "react"
 
-const ThirdTodo = ({text, todo, thirdTodos, setThirdTodos, setSecondTodos, secondTodos, setInputText}) => {
+const ThirdTodo = ({text, todo, thirdTodos, setThirdTodos, setSecondTodos, secondTodos, setInputText, trashTodos, setTrashTodos}) => {
 
 
 const deleteHandler = () => {
        
+        setTrashTodos([ 
+                ...trashTodos, {text: text , id: Math.random()*1000},
+              ])
+              setInputText("")
 
         setThirdTodos(thirdTodos.filter((el) => el.id !== todo.id))
      

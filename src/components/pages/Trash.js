@@ -1,14 +1,13 @@
 import TrashTodo from "../TrashTodo"
 import { useContext } from "react"
-import { trashContext, inputContext } from "../helpers/Context"
+import { trashContext, inputContext} from "../helpers/Context"
 
 
 function Trash( ){
 
     const {trashTodos, setTrashTodos} = useContext(trashContext) 
-    const {inputText, setInputText} = useContext(inputContext); //input text
-
-return(
+    
+ return(
 <div>
     <header>
     <h1> Trash page</h1>
@@ -18,34 +17,28 @@ return(
 <div className="wrap">
     <h1>Trash</h1>
     <hr />
-  
+
     <div className="todo-container" >
               <ul className="todo-list">
-                  {trashTodos.map(todo => (   
+                  {trashTodos.map( todo => (   
                       <TrashTodo
                        trashTodos={trashTodos}
                        setTrashTodos={setTrashTodos}
+                       id={Math.random()*1000}
                        todo={todo}
                        key={todo.id}
-                       todo={todo}
                        text={todo.text} 
-                       setInputText={setInputText}
-                       inputText={inputText}
-                 />
                     
-                       ))}
-                       {console.log(inputText)}
+                    
+                  
+                 />
+                     ))}
+                    
+               
                   </ul>
+               
            </div>
- 
-
-     
-
-        
-   
-
-
-</div>
+ </div>
 </div>
 
 </div>

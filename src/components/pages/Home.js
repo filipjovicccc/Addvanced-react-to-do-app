@@ -10,25 +10,20 @@ import SecondTodo from "../SecondTodo"
 
 import ThirdTodo from "../ThirdTodo"
 
-import { trashContext, inputContext } from "../helpers/Context"
+import { trashContext, } from "../helpers/Context"
 
-// import { inputContext, trashContext } from "../helpers/Context"
-
-
-// import { trashTodos, setTrashTodos } from "../../helpers/deleteTrash"
 
 function Home(){
 
-  const {inputText, setInputText} = useContext(inputContext);
+  // const {inputText, setInputText} = useContext(trashContext);
+    const[inputText, setInputText]=useState("")
     const [todos, setTodos] = useState([]);
     const [secondTodos, setSecondTodos] = useState([])
     const [thirdTodos, setThirdTodos] = useState([])
-     const [variableAlert, setVariableAlert] = useState('')
-     const {trashTodos, setTrashTodos} = useContext(trashContext) //TRASH TODOS NE RADI
-    //  const [inputText, setInputText] = useState("")
-     
-     
-    const submitTodoHendler = (e) => {
+    const [variableAlert, setVariableAlert] = useState('')
+    const {trashTodos, setTrashTodos} = useContext(trashContext) 
+  
+      const submitTodoHendler = (e) => {
       e.preventDefault();
       if (inputText === ""){
        
@@ -64,7 +59,7 @@ function Home(){
           setTodos(todoLocal)
          }
         }
-        // const msg = useContext(message)
+        
         
      return (
       <div className="App">
@@ -72,13 +67,7 @@ function Home(){
        <h1>Todo List  </h1>
        
        </header>
-       {/* <Trash
-       setInputText={setInputText}
-       trashTodos={trashTodos}
-       setTrashTodos={setTrashTodos}
-       todos={todos}
-       /> */}
-     
+
       <Form 
       inputText={inputText}
        setInputText={setInputText}
@@ -150,6 +139,8 @@ function Home(){
                        setSecondTodos={setSecondTodos}
                        secondTodos={secondTodos}
                        setInputText={setInputText}
+                       trashTodos={trashTodos}
+                       setTrashTodos={setTrashTodos}
                    />
                     
                         ))}
