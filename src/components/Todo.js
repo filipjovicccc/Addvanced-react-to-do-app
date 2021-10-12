@@ -1,10 +1,5 @@
 import React from "react";
-
-const Button = ({ fn, customClass, arrow }) => (
-  <button onClick={fn} className={customClass}>
-    <i className={arrow}></i>
-  </button>
-);
+import Button from "./shared/Buttons";
 
 const Todo = ({
   text,
@@ -36,9 +31,8 @@ const Todo = ({
   };
   return (
     <div className="todo">
-      <button onClick={deleteHandler} className="trash-btn">
-        <i className="fas fa-trash"></i>
-      </button>
+      <Button fn={deleteHandler} customClass="trash-btn" arrow="fas fa-trash" />
+
       <li> {text}</li>
       <Button
         fn={arrowRightHandler}

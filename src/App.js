@@ -5,12 +5,10 @@ import { useState } from "react";
 import { message } from "./components/helpers/Context";
 import { trashContext } from "./components/helpers/Context";
 
-// import { trashContext } from "./components/helpers/Context";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   const [trashTodos, setTrashTodos] = useState([]);
-  // const[inputText, setInputText]=useState("")
 
   const deleteHandler = (id) =>
     setTrashTodos((trashTodos) =>
@@ -21,8 +19,6 @@ function App() {
     trashTodos,
     setTrashTodos,
     deleteHandler,
-    // inputText,
-    // setInputText
   };
 
   return (

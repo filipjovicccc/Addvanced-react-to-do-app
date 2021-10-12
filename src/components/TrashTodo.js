@@ -1,6 +1,7 @@
 import react from "react";
 import { trashContext } from "./helpers/Context";
 import { useContext } from "react";
+import Button from "./shared/Buttons";
 
 function TrashTodo({ todo, id, index }) {
   const { trashTodos, setTrashTodos } = useContext(trashContext);
@@ -14,9 +15,7 @@ function TrashTodo({ todo, id, index }) {
   return (
     <div className="todo">
       <li>{todo.text}</li>
-      <button onClick={() => deleteRamp(index)} className="trash-btn">
-        <i className="fas fa-trash"></i>
-      </button>
+      <Button fn={deleteRamp} customClass="trash-btn" arrow="fas fa-trash" />
     </div>
   );
 }

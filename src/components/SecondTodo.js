@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./shared/Buttons";
 
 const SecondTodo = ({
   text,
@@ -24,13 +25,19 @@ const SecondTodo = ({
   };
   return (
     <div className="todo">
-      <button onClick={arrowLeftHandler} className="complete-btn">
-        <i className="fas fa-arrow-left"></i>
-      </button>
+      <Button
+        fn={arrowLeftHandler}
+        customClass="complete-btn"
+        arrow="fas fa-arrow-left"
+      />
+
       <li> {text}</li>
-      <button onClick={arrowRightHandler} className="complete-btn">
-        <i className="fas fa-arrow-right"></i>
-      </button>
+
+      <Button
+        fn={arrowRightHandler}
+        customClass="complete-btn"
+        arrow="fas fa-arrow-right"
+      />
     </div>
   );
 };
