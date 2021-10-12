@@ -1,48 +1,38 @@
-import TrashTodo from "../TrashTodo"
-import { useContext } from "react"
-import { trashContext, inputContext} from "../helpers/Context"
+import TrashTodo from "../TrashTodo";
+import { useContext } from "react";
+import { trashContext, inputContext } from "../helpers/Context";
 
+function Trash() {
+  const { trashTodos, setTrashTodos } = useContext(trashContext);
 
-function Trash( ){
+  return (
+    <div>
+      <header>
+        <h1> Trash page</h1>
+      </header>
+      <div className="wrapper">
+        <div className="wrap">
+          <h1>Trash</h1>
+          <hr />
 
-    const {trashTodos, setTrashTodos} = useContext(trashContext) 
-    
- return(
-<div>
-    <header>
-    <h1> Trash page</h1>
-</header>
-<div className="wrapper">
-
-<div className="wrap">
-    <h1>Trash</h1>
-    <hr />
-
-    <div className="todo-container" >
-              <ul className="todo-list">
-                  {trashTodos.map( todo => (   
-                      <TrashTodo
-                       trashTodos={trashTodos}
-                       setTrashTodos={setTrashTodos}
-                       id={Math.random()*1000}
-                       todo={todo}
-                       key={todo.id}
-                       text={todo.text} 
-                    
-                    
-                  
-                 />
-                     ))}
-                    
-               
-                  </ul>
-               
-           </div>
- </div>
-</div>
-
-</div>
-)
+          <div className="todo-container">
+            <ul className="todo-list">
+              {trashTodos.map((todo) => (
+                <TrashTodo
+                  trashTodos={trashTodos}
+                  setTrashTodos={setTrashTodos}
+                  id={Math.random() * 1000}
+                  todo={todo}
+                  key={todo.id}
+                  text={todo.text}
+                />
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default Trash
+export default Trash;
