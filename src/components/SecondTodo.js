@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./shared/Buttons";
+import { Button } from "../shared/sharedComponents";
 
 const SecondTodo = ({
   text,

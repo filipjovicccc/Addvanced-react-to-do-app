@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./shared/Buttons";
+import { Button } from "../shared/sharedComponents";
 
 const Todo = ({
   text,
@@ -11,7 +11,6 @@ const Todo = ({
   setInputText,
   trashTodos,
   setTrashTodos,
-  inputText,
 }) => {
   const deleteHandler = () => {
     setTrashTodos([...trashTodos, { text: text, id: Math.random() * 1000 }]);

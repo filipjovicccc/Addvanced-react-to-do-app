@@ -1,4 +1,4 @@
-import TrashTodo from "../TrashTodo";
+import TrashTodo from "../components/TrashTodo";
 import { useContext } from "react";
 import { trashContext, inputContext } from "../helpers/Context";
 

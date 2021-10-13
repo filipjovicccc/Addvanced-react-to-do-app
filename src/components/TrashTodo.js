@@ -1,7 +1,7 @@
 import react from "react";
-import { trashContext } from "./helpers/Context";
+import { trashContext } from "../helpers/Context";
 import { useContext } from "react";
-import Button from "./shared/Buttons";
+import { Button } from "../shared/sharedComponents";
 
 function TrashTodo({ todo, id, index }) {
   const { trashTodos, setTrashTodos } = useContext(trashContext);

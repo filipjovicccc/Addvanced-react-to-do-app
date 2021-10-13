@@ -1,10 +1,8 @@
-import Home from "./components/pages/Home";
-import Trash from "./components/pages/Trash";
+import Home from "./pages/Home";
+import Trash from "./pages/Trash";
 import Navbar from "./components/Navbar";
 import { useState } from "react";
-import { message } from "./components/helpers/Context";
-import { trashContext } from "./components/helpers/Context";
-
+import { trashContext } from "./helpers/Context";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {

@@ -2,28 +2,19 @@ import "./Home.css";
 
 import { useState, useEffect, useContext } from "react";
 
-import Form from "../Form";
+import Form from "../components/Form";
 
-import Todo from "../Todo";
+import Todo from "../components/Todo";
 
-import SecondTodo from "../SecondTodo";
+import SecondTodo from "../components/SecondTodo";
 
-import ThirdTodo from "../ThirdTodo";
+import ThirdTodo from "../components/ThirdTodo";
 
 import { trashContext } from "../helpers/Context";
 
-const List = ({ title, children }) => (
-  <div className="wrap">
-    <h1>{title}</h1>
-    <hr />
-    <div className="todo-container">
-      <ul className="todo-list">{children}</ul>
-    </div>
-  </div>
-);
+import { List } from "../shared/sharedComponents";
 
 function Home() {
-  // const {inputText, setInputText} = useContext(trashContext);
   const [inputText, setInputText] = useState("");
   const [todos, setTodos] = useState([]);
   const [secondTodos, setSecondTodos] = useState([]);
