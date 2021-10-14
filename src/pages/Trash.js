@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { trashContext, inputContext } from "../helpers/Context";
 
 function Trash() {
-  const { trashTodos, setTrashTodos } = useContext(trashContext);
+  const { trashTodos, setTrashTodos, deleteHandler } = useContext(trashContext);
 
   return (
     <div>
@@ -25,6 +25,7 @@ function Trash() {
                   todo={todo}
                   key={todo.id}
                   text={todo.text}
+                  deleteHandler={deleteHandler}
                 />
               ))}
             </ul>

@@ -5,7 +5,7 @@ import { Button } from "../shared/sharedComponents";
 
 function TrashTodo({ todo, id, index }) {
   const { trashTodos, setTrashTodos } = useContext(trashContext);
-
+  // const { deleteHandler } = useContext(trashContext);
   const deleteRamp = () => {
     let filtered = trashTodos.filter((t) => t.id !== todo.id);
 
