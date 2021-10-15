@@ -32,7 +32,11 @@ function Home() {
       setTimeout(function () {
         window.location = "index";
       }, 2000);
-    } else setTodos([...todos, { text: inputText, id: Math.random() * 1000 }]);
+    } else
+      setTodos([
+        ...todos,
+        { text: inputText, id: Math.random() * 1000, list: "DO" },
+      ]);
     setInputText("");
   };
 
@@ -55,42 +59,10 @@ function Home() {
 
       setTodos(todoLocal);
     }
-    // if ((title = "TO DO")) {
-    //   return todos;
-    // } else {
-    //   return todos;
-    // }
-    // const titleType = (title) => {
-    //   if (title === "TO DO") {
-    //     todos = true;
-    //     console.log(todos);
-    //   } else if (title === "IN PROGRES") {
-    //     todos = true;
-    //   } else if (title === "COMPLITED") {
-    //     todos = true;
-    //   }
-    // };
-    // };
-    // const example1 = () => {
-    //   if (true) {
-    //     todos.map((todo) => (
-    //       <Todo
-    //         activeList={1}
-    //         setTodos={setTodos}
-    //         todos={todos}
-    //         key={todo.id}
-    //         todo={todo}
-    //         text={todo.text}
-    //         secondTodos={secondTodos}
-    //         setSecondTodos={setSecondTodos}
-    //         setInputText={setInputText}
-    //         trashTodos={trashTodos}
-    //         setTrashTodos={setTrashTodos}
-    //       />
-    //     ));
-    //   }
   };
-  const activelist = false;
+
+  const filteredList = (list, listName) =>
+    list.filter((todo) => todo.list === listName);
 
   return (
     <div className="App">
@@ -106,48 +78,46 @@ function Home() {
 
       <div className="variable">{variableAlert}</div>
       <div className="wrapper">
-        <List title="TO DO" activelist={1}>
-          {activelist === 1
-            ? false
-            : todos.map((todo) => (
-                <Todo
-                  setTodos={setTodos}
-                  todos={todos}
-                  key={todo.id}
-                  todo={todo}
-                  text={todo.text}
-                  secondTodos={secondTodos}
-                  setSecondTodos={setSecondTodos}
-                  setInputText={setInputText}
-                  setTrashTodos={setTrashTodos}
-                />
-              ))}
+        <List title="TO DO">
+          {filteredList(todos, "DO").map((todo) => (
+            <Todo
+              setTodos={setTodos}
+              todos={todos}
+              key={todo.id}
+              todo={todo}
+              text={todo.text}
+              id={todo.id}
+              secondTodos={secondTodos}
+              setSecondTodos={setSecondTodos}
+              setInputText={setInputText}
+              setTrashTodos={setTrashTodos}
+            />
+          ))}
         </List>
-        <List title="IN PROGRESS" activelist={2}>
-          {activelist === 2
-            ? false
-            : todos.map((todo) => (
-                <Todo
-                  setInputText={setInputText}
-                  // setSecondTodos={setSecondTodos}
-                  // secondTodos={secondTodos}
-                  todos={todos}
-                  setTodos={setTodos}
-                  key={todo.id}
-                  todo={todo}
-                  text={todo.text}
-                  thirdTodos={thirdTodos}
-                  setThirdTodos={setThirdTodos}
-                />
-              ))}
+        <List title="IN PROGRESS">
+          {filteredList(todos, "DOING").map((todo) => (
+            <Todo
+              setInputText={setInputText}
+              // setSecondTodos={setSecondTodos}
+              // secondTodos={secondTodos}
+              todos={todos}
+              setTodos={setTodos}
+              key={todo.id}
+              todo={todo}
+              text={todo.text}
+              thirdTodos={thirdTodos}
+              setThirdTodos={setThirdTodos}
+            />
+          ))}
         </List>
         <List title="COMPLETED">
-          {thirdTodos.map((todo) => (
-            <ThirdTodo
+          {filteredList(todos, "DONE").map((todo) => (
+            <Todo
               thirdTodos={thirdTodos}
               setThirdTodos={setThirdTodos}
               key={todo.id}
               todo={todo}
+              todos={todos}
               text={todo.text}
               setSecondTodos={setSecondTodos}
               secondTodos={secondTodos}

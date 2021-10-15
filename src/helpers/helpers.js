@@ -1,23 +1,21 @@
-// import { useState, useEffect } from "react";
+export const arrowHandler = (e, id, listName, list, fn, fn2) => {
+  e.preventDefault();
+  const changeListProp = list.map((t) => {
+    if (t.id === id) {
+      t.list = listName;
+    }
+    return t;
+  });
+  fn("");
 
-// function getSavedValue(key, initialValue) {
-//   const savedValue = JSON.parse(localStorage.getItem(key));
-//   if (savedValue) return savedValue;
+  fn2(changeListProp);
+};
 
-//   if (initialValue instanceof Function) return initialValue();
+export const deleteHandler = (id, list, fn, ex) => {
+  // setTrashTodos([...trashTodos, { text: text, id: Math.random() * 1000 }]);
+  // setInputText("");
 
-//   return initialValue;
-// }
-// export default function useLocalStorage(key, initialValue) {
-//   const [value, setValue] = useState(() => {
-//     return getSavedValue(key, initialValue);
-//   });
+  const result = list.filter((el) => el.id !== ex.id);
 
-//   useEffect(() => {
-//     localStorage.setItem(key, JSON.stringify(value));
-//   }, [value]);
-
-//   return [value, setValue];
-// }
-
-
+  fn(result);
+};
