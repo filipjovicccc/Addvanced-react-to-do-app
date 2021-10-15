@@ -55,40 +55,7 @@ function Home() {
 
       setTodos(todoLocal);
     }
-    // if ((title = "TO DO")) {
-    //   return todos;
-    // } else {
-    //   return todos;
-    // }
-    // const titleType = (title) => {
-    //   if (title === "TO DO") {
-    //     todos = true;
-    //     console.log(todos);
-    //   } else if (title === "IN PROGRES") {
-    //     todos = true;
-    //   } else if (title === "COMPLITED") {
-    //     todos = true;
-    //   }
-    // };
-    // };
-    // const example1 = () => {
-    //   if (true) {
-    //     todos.map((todo) => (
-    //       <Todo
-    //         activeList={1}
-    //         setTodos={setTodos}
-    //         todos={todos}
-    //         key={todo.id}
-    //         todo={todo}
-    //         text={todo.text}
-    //         secondTodos={secondTodos}
-    //         setSecondTodos={setSecondTodos}
-    //         setInputText={setInputText}
-    //         trashTodos={trashTodos}
-    //         setTrashTodos={setTrashTodos}
-    //       />
-    //     ));
-    //   }
+    
   };
   const activelist = false;
 
@@ -107,9 +74,8 @@ function Home() {
       <div className="variable">{variableAlert}</div>
       <div className="wrapper">
         <List title="TO DO" activelist={1}>
-          {activelist === 1
-            ? false
-            : todos.map((todo) => (
+          {
+            todos.map((todo) => (
                 <Todo
                   setTodos={setTodos}
                   todos={todos}
@@ -120,17 +86,16 @@ function Home() {
                   setSecondTodos={setSecondTodos}
                   setInputText={setInputText}
                   setTrashTodos={setTrashTodos}
+                  trashTodos={trashTodos}
                 />
               ))}
         </List>
         <List title="IN PROGRESS" activelist={2}>
-          {activelist === 2
-            ? false
-            : todos.map((todo) => (
-                <Todo
+          {secondTodos.map((todo) => (
+                <SecondTodo
                   setInputText={setInputText}
-                  // setSecondTodos={setSecondTodos}
-                  // secondTodos={secondTodos}
+                  setSecondTodos={setSecondTodos}
+                  secondTodos={secondTodos}
                   todos={todos}
                   setTodos={setTodos}
                   key={todo.id}
