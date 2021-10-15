@@ -59,6 +59,10 @@ function Home() {
 
       setTodos(todoLocal);
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> main
   };
 
   const filteredList = (list, listName) =>
@@ -78,6 +82,7 @@ function Home() {
 
       <div className="variable">{variableAlert}</div>
       <div className="wrapper">
+<<<<<<< HEAD
         <List title="TO DO">
           {filteredList(todos, "DO").map((todo) => (
             <Todo
@@ -109,6 +114,40 @@ function Home() {
               setThirdTodos={setThirdTodos}
             />
           ))}
+=======
+        <List title="TO DO" activelist={1}>
+          {
+            todos.map((todo) => (
+                <Todo
+                  setTodos={setTodos}
+                  todos={todos}
+                  key={todo.id}
+                  todo={todo}
+                  text={todo.text}
+                  secondTodos={secondTodos}
+                  setSecondTodos={setSecondTodos}
+                  setInputText={setInputText}
+                  setTrashTodos={setTrashTodos}
+                  trashTodos={trashTodos}
+                />
+              ))}
+        </List>
+        <List title="IN PROGRESS" activelist={2}>
+          {secondTodos.map((todo) => (
+                <SecondTodo
+                  setInputText={setInputText}
+                  setSecondTodos={setSecondTodos}
+                  secondTodos={secondTodos}
+                  todos={todos}
+                  setTodos={setTodos}
+                  key={todo.id}
+                  todo={todo}
+                  text={todo.text}
+                  thirdTodos={thirdTodos}
+                  setThirdTodos={setThirdTodos}
+                />
+              ))}
+>>>>>>> main
         </List>
         <List title="COMPLETED">
           {filteredList(todos, "DONE").map((todo) => (

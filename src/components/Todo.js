@@ -16,6 +16,7 @@ const Todo = ({
   setTrashTodos,
   id,
 }) => {
+<<<<<<< HEAD
   // const componentDidMount = () => {
   // const todos = localStorage.getItem('todos') === 'true';
   // const user = rememberMe ? localStorage.getItem('') : '';
@@ -34,10 +35,10 @@ const Todo = ({
   //     localStorage.setItem("todos", JSON.stringify([]));
   //   } else {
   //     let todoLocal = JSON.parse(localStorage.getItem("todos"));
+=======
+>>>>>>> main
 
-  //     setTodos(todoLocal);
-  //   }
-  // };
+  const { todos, setTodos } = useContext(todoContext);
 
   // const deleteHandler = () => {
   //   setTrashTodos([...trashTodos, { text: text, id: Math.random() * 1000 }]);
@@ -48,6 +49,7 @@ const Todo = ({
   //   setTodos(result);
   // };
 
+<<<<<<< HEAD
   // const arrowHandler = (e) => {
   //   e.preventDefault();
   //   setSecondTodos([...secondTodos, { text: text, id: Math.random() * 1000 }]);
@@ -55,6 +57,16 @@ const Todo = ({
 
   //   setTodos(todos.filter((el) => el.id !== todo.id));
   // };
+=======
+  const arrowRightHandler = (e) => {
+    e.preventDefault();
+    setSecondTodos([...secondTodos, { text: text, id: Math.random() * 1000 }]);
+    setInputText("");
+
+    setTodos(todos.filter((el) => el.id !== todo.id));
+  };
+>>>>>>> main
+
 
   return (
     <div className="todo">
