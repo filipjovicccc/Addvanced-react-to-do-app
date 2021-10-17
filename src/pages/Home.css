@@ -123,3 +123,14 @@ form button:hover {
   position: relative;
   bottom: 50px;
 }
+
+@media (max-width: 1200px) {
+  .wrap {
+    font-size: 10px;
+  }
+}
+@media (max-width: 800px) {
+  .wrapper {
+    flex-direction: column;
+  }
+}

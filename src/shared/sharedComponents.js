@@ -14,9 +14,4 @@ export const List = ({ title, children, activelist }) => (
     </div>
   </div>
 );
-// const deleteHandler = (id) =>
-// setTrashTodos((trashTodos) =>
-//   trashTodos.filter((trashTodos) => trashTodos.id !== id)
-// );
-// export const deleteHandler = (id, todos, setTrashTodos) =>
-//   setTrashTodos((todos) => todos.filter((todos) => todos.id !== id));
+

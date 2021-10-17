@@ -1,103 +1,85 @@
 import { useContext } from "react";
-import { todoContext } from "../helpers/Context";
+import { todoContext, trashContext } from "../helpers/Context";
 import { Button } from "../shared/sharedComponents";
 import { arrowHandler } from "../helpers/helpers";
 import { deleteHandler } from "../helpers/helpers";
 
-const Todo = ({
-  text,
-  todo,
-  // todos,
-  // setTodos,
-  setSecondTodos,
-  secondTodos,
-  setInputText,
-  trashTodos,
-  setTrashTodos,
-  id,
-}) => {
-<<<<<<< HEAD
-  // const componentDidMount = () => {
-  // const todos = localStorage.getItem('todos') === 'true';
-  // const user = rememberMe ? localStorage.getItem('') : '';
-  //   let todos = JSON.parse(localStorage.getItem("todos"));
-  //   setTodos(todos);
-  //   console.log(todos);
-  // };
-  // const getLocalItems = () => {
-  //   let todos = localStorage.getItem("todos")
-  //   console.log(todos)
-  // }
-
+const Todo = ({ text, todo, setInputText, id }) => {
   const { todos, setTodos } = useContext(todoContext);
-  // const getLocalTodos = () => {
-  //   if (localStorage.getItem("todos") === null) {
-  //     localStorage.setItem("todos", JSON.stringify([]));
-  //   } else {
-  //     let todoLocal = JSON.parse(localStorage.getItem("todos"));
-=======
->>>>>>> main
-
-  const { todos, setTodos } = useContext(todoContext);
-
-  // const deleteHandler = () => {
-  //   setTrashTodos([...trashTodos, { text: text, id: Math.random() * 1000 }]);
-  //   setInputText("");
-
-  //   const result = todos.filter((el) => el.id !== todo.id);
-
-  //   setTodos(result);
-  // };
-
-<<<<<<< HEAD
-  // const arrowHandler = (e) => {
-  //   e.preventDefault();
-  //   setSecondTodos([...secondTodos, { text: text, id: Math.random() * 1000 }]);
-  //   setInputText("");
-
-  //   setTodos(todos.filter((el) => el.id !== todo.id));
-  // };
-=======
-  const arrowRightHandler = (e) => {
-    e.preventDefault();
-    setSecondTodos([...secondTodos, { text: text, id: Math.random() * 1000 }]);
-    setInputText("");
-
-    setTodos(todos.filter((el) => el.id !== todo.id));
-  };
->>>>>>> main
-
+  const { trashTodos, setTrashTodos } = useContext(trashContext);
 
   return (
     <div className="todo">
-      {/* // left-icon */}
-      {console.log(todos)}
       {todo.list !== "DO" ? (
-        <Button
-          fn={(e) =>
-            arrowHandler(e, id, "DOING", todos, setInputText, setTodos)
-          }
-          customClass="complete-btn"
-          arrow="fas fa-arrow-left"
-        />
+        todo.list === "DOING" ? (
+          <Button
+            fn={(e) => arrowHandler(e, id, "DO", todos, setInputText, setTodos)}
+            customClass="complete-btn"
+            arrow="fas fa-arrow-left"
+          />
+        ) : (
+          <Button
+            fn={(e) =>
+              arrowHandler(e, id, "DOING", todos, setInputText, setTodos)
+            }
+            customClass="complete-btn"
+            arrow="fas fa-arrow-left"
+          />
+        )
       ) : (
         <Button
-          fn={deleteHandler(id, todos, setTodos, todo)}
+          fn={(e) =>
+            deleteHandler(
+              e,
+              id,
+              todos,
+              todo,
+              setTodos,
+              setTrashTodos,
+              trashTodos,
+              text,
+              setInputText
+            )
+          }
           customClass="trash-btn"
           arrow="fas fa-trash"
         />
       )}
+
       <li> {text}</li>
-      {/* //right-icon */}
-      {todo.list !== "DOING" ? (
-        <Button
-          fn={(e) => arrowHandler(e, id, "DO", todos, setInputText, setTodos)}
-          customClass="complete-btn"
-          arrow="fas fa-arrow-right"
-        />
+      {todo.list !== "DONE" ? (
+        todo.list === "DOING" ? (
+          <Button
+            fn={(e) =>
+              arrowHandler(e, id, "DONE", todos, setInputText, setTodos)
+            }
+            customClass="complete-btn"
+            arrow="fas fa-arrow-right"
+          />
+        ) : (
+          <Button
+            fn={(e) =>
+              arrowHandler(e, id, "DOING", todos, setInputText, setTodos)
+            }
+            customClass="complete-btn"
+            arrow="fas fa-arrow-right"
+          />
+        )
       ) : (
         <Button
-          fn={deleteHandler}
+          fn={(e) =>
+            deleteHandler(
+              e,
+              id,
+              todos,
+              todo,
+              setTodos,
+              setTrashTodos,
+              trashTodos,
+              text,
+              setInputText
+            )
+          }
           customClass="trash-btn"
           arrow="fas fa-trash"
         />

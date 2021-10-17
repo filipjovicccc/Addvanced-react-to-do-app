@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 export const arrowHandler = (e, id, listName, list, fn, fn2) => {
   e.preventDefault();
   const changeListProp = list.map((t) => {
@@ -12,14 +11,10 @@ export const arrowHandler = (e, id, listName, list, fn, fn2) => {
   fn2(changeListProp);
 };
 
-export const deleteHandler = (id, list, fn, ex) => {
-  // setTrashTodos([...trashTodos, { text: text, id: Math.random() * 1000 }]);
-  // setInputText("");
-=======
+//fn2 = setTrashTodos, ex2=trashTodos, ex3=text, fn3=setInputText
+export const deleteHandler = (e, id, list, ex, fn, fn2, ex2, ex3, fn3) => {
+  fn2([...ex2, { ex3: ex3, id: Math.random() * 1000 }]);
+  fn3("");
 
->>>>>>> main
-
-  const result = list.filter((el) => el.id !== ex.id);
-
-  fn(result);
+  fn(list.filter((el) => el.id !== ex.id));
 };

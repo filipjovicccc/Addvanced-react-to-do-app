@@ -6,22 +6,13 @@ import Form from "../components/Form";
 
 import Todo from "../components/Todo";
 
-import SecondTodo from "../components/SecondTodo";
-
-import ThirdTodo from "../components/ThirdTodo";
-
 import { trashContext, todoContext } from "../helpers/Context";
 
 import { List } from "../shared/sharedComponents";
 
-import useLocalStorage from "../helpers/helpers";
-
 function Home() {
   const [inputText, setInputText] = useState("");
-  // const [todos, setTodos] = useState([]);
   const { todos, setTodos } = useContext(todoContext);
-  const [secondTodos, setSecondTodos] = useState([]);
-  const [thirdTodos, setThirdTodos] = useState([]);
   const [variableAlert, setVariableAlert] = useState("");
   const { trashTodos, setTrashTodos } = useContext(trashContext);
 
@@ -59,10 +50,6 @@ function Home() {
 
       setTodos(todoLocal);
     }
-<<<<<<< HEAD
-=======
-    
->>>>>>> main
   };
 
   const filteredList = (list, listName) =>
@@ -82,7 +69,6 @@ function Home() {
 
       <div className="variable">{variableAlert}</div>
       <div className="wrapper">
-<<<<<<< HEAD
         <List title="TO DO">
           {filteredList(todos, "DO").map((todo) => (
             <Todo
@@ -92,8 +78,6 @@ function Home() {
               todo={todo}
               text={todo.text}
               id={todo.id}
-              secondTodos={secondTodos}
-              setSecondTodos={setSecondTodos}
               setInputText={setInputText}
               setTrashTodos={setTrashTodos}
             />
@@ -103,63 +87,23 @@ function Home() {
           {filteredList(todos, "DOING").map((todo) => (
             <Todo
               setInputText={setInputText}
-              // setSecondTodos={setSecondTodos}
-              // secondTodos={secondTodos}
               todos={todos}
               setTodos={setTodos}
               key={todo.id}
+              id={todo.id}
               todo={todo}
               text={todo.text}
-              thirdTodos={thirdTodos}
-              setThirdTodos={setThirdTodos}
             />
           ))}
-=======
-        <List title="TO DO" activelist={1}>
-          {
-            todos.map((todo) => (
-                <Todo
-                  setTodos={setTodos}
-                  todos={todos}
-                  key={todo.id}
-                  todo={todo}
-                  text={todo.text}
-                  secondTodos={secondTodos}
-                  setSecondTodos={setSecondTodos}
-                  setInputText={setInputText}
-                  setTrashTodos={setTrashTodos}
-                  trashTodos={trashTodos}
-                />
-              ))}
-        </List>
-        <List title="IN PROGRESS" activelist={2}>
-          {secondTodos.map((todo) => (
-                <SecondTodo
-                  setInputText={setInputText}
-                  setSecondTodos={setSecondTodos}
-                  secondTodos={secondTodos}
-                  todos={todos}
-                  setTodos={setTodos}
-                  key={todo.id}
-                  todo={todo}
-                  text={todo.text}
-                  thirdTodos={thirdTodos}
-                  setThirdTodos={setThirdTodos}
-                />
-              ))}
->>>>>>> main
         </List>
         <List title="COMPLETED">
           {filteredList(todos, "DONE").map((todo) => (
             <Todo
-              thirdTodos={thirdTodos}
-              setThirdTodos={setThirdTodos}
               key={todo.id}
+              id={todo.id}
               todo={todo}
               todos={todos}
               text={todo.text}
-              setSecondTodos={setSecondTodos}
-              secondTodos={secondTodos}
               setInputText={setInputText}
               trashTodos={trashTodos}
               setTrashTodos={setTrashTodos}

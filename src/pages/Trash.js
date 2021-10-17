@@ -1,26 +1,20 @@
 import TrashTodo from "../components/TrashTodo";
-import { useContext, lazy, Suspense } from "react";
+import React, { useContext, Suspense } from "react";
 import { trashContext, inputContext } from "../helpers/Context";
-import LazyLoad from "react-lazyload";
-import myComp from "../components/myComp";
 
-const MyComp = lazy(() => import("../components/myComp"))
+const LazyLoader = React.lazy(() => import("../components/LazyLoading"));
 function Trash() {
-const { trashTodos, setTrashTodos, deleteHandler } = useContext(trashContext);
-
+  const { trashTodos, setTrashTodos, deleteHandler } = useContext(trashContext);
 
   return (
     <div>
       <header>
-        <h1> Trash page</h1>
+        <Suspense fallback={<p>Loading...</p>}>
+          <h1> Trash page</h1>
+          <LazyLoader />
+        </Suspense>
       </header>
-      <Suspense fallback={<div>Loading...</div>}> 
-      <MyComp />
-
-      </Suspense>
-      
-     
-<div className="wrapper">
+      <div className="wrapper">
         <div className="wrap">
           <div>another component</div>
           <h1>Trash</h1>
