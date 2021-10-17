@@ -9,11 +9,6 @@ function App() {
   const [trashTodos, setTrashTodos] = useState([]);
   const [todos, setTodos] = useState([]);
 
-  // const deleteHandler = (id) =>
-  //   setTrashTodos((trashTodos) =>
-  //     trashTodos.filter((trashTodos) => trashTodos.id !== id)
-  //   );
-
   const value = {
     trashTodos,
     setTrashTodos,

@@ -4,9 +4,8 @@ export const Button = ({ fn, customClass, arrow }) => (
   </button>
 );
 
-export const List = ({ title, children, activelist }) => (
+export const List = ({ title, children }) => (
   <div className="wrap">
-    {activelist}
     <h1>{title}</h1>
     <hr />
     <div className="todo-container">
@@ -14,4 +13,3 @@ export const List = ({ title, children, activelist }) => (
     </div>
   </div>
 );
-

@@ -11,7 +11,6 @@ export const arrowHandler = (e, id, listName, list, fn, fn2) => {
   fn2(changeListProp);
 };
 
-//fn2 = setTrashTodos, ex2=trashTodos, ex3=text, fn3=setInputText
 export const deleteHandler = (e, id, list, ex, fn, fn2, ex2, ex3, fn3) => {
   fn2([...ex2, { ex3: ex3, id: Math.random() * 1000 }]);
   fn3("");

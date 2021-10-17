@@ -1,16 +1,16 @@
 import TrashTodo from "../components/TrashTodo";
 import React, { useContext, Suspense } from "react";
-import { trashContext, inputContext } from "../helpers/Context";
+import { trashContext } from "../helpers/Context";
 
 const LazyLoader = React.lazy(() => import("../components/LazyLoading"));
 function Trash() {
-  const { trashTodos, setTrashTodos, deleteHandler } = useContext(trashContext);
+  const { trashTodos, setTrashTodos } = useContext(trashContext);
 
   return (
     <div>
       <header>
+        <h1> Trash page</h1>
         <Suspense fallback={<p>Loading...</p>}>
-          <h1> Trash page</h1>
           <LazyLoader />
         </Suspense>
       </header>
@@ -21,19 +21,21 @@ function Trash() {
           <hr />
 
           <div className="todo-container">
-            <ul className="todo-list">
-              {trashTodos.map((todo) => (
-                <TrashTodo
-                  trashTodos={trashTodos}
-                  setTrashTodos={setTrashTodos}
-                  id={Math.random() * 1000}
-                  todo={todo}
-                  key={todo.id}
-                  text={todo.text}
-                  deleteHandler={deleteHandler}
-                />
-              ))}
-            </ul>
+            <Suspense fallback={<p>Loading...</p>}>
+              <LazyLoader />
+              <ul className="todo-list">
+                {trashTodos.map((todo) => (
+                  <TrashTodo
+                    trashTodos={trashTodos}
+                    setTrashTodos={setTrashTodos}
+                    id={Math.random() * 1000}
+                    todo={todo}
+                    key={todo.id}
+                    text={todo.text}
+                  />
+                ))}
+              </ul>
+            </Suspense>
           </div>
         </div>
       </div>
